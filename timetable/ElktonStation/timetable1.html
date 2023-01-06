@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="PROJECT RAIL TIMETABLE BETA">
+        <title>PROJECT RAILS TIMETABLE</title>
+        <link rel="stylesheet" href="/style/style.css">
+
+    </head>
+
+    <body onload=display_timeLayered()>
+
+        <h1>
+            08:30 | </br>
+            </br>
+            </br>
+            </br>
+            </br>
+        </h1>
+        <h2>
+            __________________________ </br>
+        </h2>
+        <h3>
+            PAGE 1 OF 1</br>
+        </h3>
+        <h4>
+            <span id="time"></span></br>
+        </h4>
+        <script>
+            function display_time() {
+                var refresh = 1000; // Refresh rate in milli seconds
+                currentTime=setTimeout('display_timeLayered()', refresh)
+            }
+
+            function leadingZero(time) {
+                return time>9? time: "0"+time;
+            }
+
+            function display_timeLayered() {
+                var xDate = new Date()
+            
+                var result = leadingZero(xDate.getHours()) + ":" + leadingZero(xDate.getMinutes()) + ":" + leadingZero(xDate.getSeconds());
+                document.getElementById('time').innerHTML = result;
+                display_time();
+            }
+        </script>
+
+    </body>
+
+</html>
